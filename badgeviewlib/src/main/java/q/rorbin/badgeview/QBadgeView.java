@@ -25,6 +25,8 @@ import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -155,7 +157,7 @@ public class QBadgeView extends View implements Badge {
                 ViewGroup.LayoutParams targetParams = targetView.getLayoutParams();
                 targetContainer.removeView(targetView);
                 final BadgeContainer badgeContainer = new BadgeContainer(getContext());
-                if(targetContainer instanceof RelativeLayout){
+                if(targetContainer instanceof RelativeLayout || targetContainer instanceof ConstraintLayout){
                     badgeContainer.setId(targetView.getId());
                 }
                 targetContainer.addView(badgeContainer, index, targetParams);
